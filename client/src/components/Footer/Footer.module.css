@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.links {
+  display: flex;
+  gap: 16px;
+}
+
+.Link {
+  color: var(--text-primary);
+}

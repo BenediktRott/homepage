@@ -1,0 +1,49 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: "Fraunces Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(./files/fraunces-full-full-normal.woff2) format("woff2-variations");
+}
+
+@font-face {
+  font-family: "Space Grotesk Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 700;
+  src: url(./files/space-grotesk-full-full-normal.woff2)
+    format("woff2-variations");
+}
+
+:root {
+  --background: #f6efe4;
+  --primary: #94a88c;
+  --primary-dark: #5c7057;
+  --border: #5b4a5e;
+  --secondary: #d68c6a;
+  --tertiary: #5b4a5e;
+  --text-primary: #5b4a5e;
+  --text-secondary: #5c7057;
+  --text-on-primary: #fffaf1;
+  font-family: "Space Grotesk Variable", monospace;
+  color: var(--text-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: "Fraunces Variable", serif;
+}

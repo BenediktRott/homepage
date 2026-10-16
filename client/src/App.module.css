@@ -1,0 +1,61 @@
+.viewport {
+  --zoom: 3.1; /* final scene size = zoom × viewport */
+  --ox: 50; /* transform origin in %, set to the monitor's centre */
+  --oy: 47.5;
+
+  position: fixed; /* also removes your scrollbars */
+  inset: 0;
+  overflow: hidden;
+}
+
+.scene {
+  position: absolute;
+  box-sizing: border-box;
+
+  width: calc(var(--zoom) * 100%);
+  height: calc(var(--zoom) * 100%);
+
+  /* Keep the monitor centre (transform origin) fixed on the screen: */
+  /* Unscaled, the scene is --zoom viewports wide, so the origin sits
+   ox% * --zoom * vw from the scene's left edge. It must land at ox% * vw
+   on screen, so:
+  left = ox% * vw - ox% * --zoom * vw = ox% * (1 - --zoom) * vw
+  */
+  left: calc(var(--ox) * (1 - var(--zoom)) * 1%);
+  top: calc(var(--oy) * (1 - var(--zoom)) * 1%);
+
+  /* Center of the monitor in % */
+  transform-origin: calc(var(--ox) * 1%) calc(var(--oy) * 1%);
+
+  /* Scale down so the whole scene fits the screen */
+  transform: scale(calc(1 / var(--zoom)));
+  transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.scene.zoomed {
+  transform: none;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  box-sizing: border-box;
+  position: absolute;
+  left: 35%;
+  top: 33%;
+  width: 30%;
+  height: 30%;
+  background: var(--background);
+  border: 2vw solid rgb(35, 35, 35);
+  padding: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
