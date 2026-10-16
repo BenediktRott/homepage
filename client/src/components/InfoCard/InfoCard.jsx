@@ -1,8 +1,10 @@
 import styles from "./InfoCard.module.css";
 
-export function InfoCard({ title, children }) {
+export function InfoCard({ title, children, className }) {
+  const combinedClassName = `${styles.infoCard} ${className}`;
+
   return (
-    <div className={styles.infoCard}>
+    <div className={combinedClassName}>
       <h3>{title}</h3>
       {children}
     </div>

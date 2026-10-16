@@ -1,0 +1,21 @@
+.pill {
+  border-radius: 9999px;
+  padding: 3px 10px;
+  font-size: 11px;
+  border: 1.5px solid var(--border);
+}
+
+.pill:nth-child(3n + 1) {
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+}
+
+.pill:nth-child(3n + 2) {
+  background-color: var(--secondary);
+  color: var(--text-on-primary);
+}
+
+.pill:nth-child(3n + 3) {
+  background-color: var(--text-on-primary);
+  color: var(--text-primary);
+}

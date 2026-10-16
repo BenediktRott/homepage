@@ -11,7 +11,7 @@ export function Home() {
   const { configureWindow } = useWindow();
 
   useEffect(() => {
-    configureWindow({ title: "homepage.html" });
+    configureWindow({ title: "homepage.html", headerType: "weather" });
   }, [configureWindow]);
 
   return (
@@ -52,7 +52,11 @@ export function Home() {
 
       {/* Links */}
       <section className={styles.linksSection}>
-        <ColoredCard to="/" title="About Me" className={styles.aboutMeCard}>
+        <ColoredCard
+          to="/about-me"
+          title="About Me"
+          className={styles.aboutMeCard}
+        >
           <span>Education, Skills and a CV</span>
         </ColoredCard>
 

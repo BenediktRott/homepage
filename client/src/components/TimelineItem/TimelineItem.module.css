@@ -1,0 +1,44 @@
+/* ENTRY */
+
+.entry {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.entry::before {
+  position: absolute;
+  content: "";
+  border: 2px solid var(--border);
+  left: -26px;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background-color: var(--text-on-primary);
+}
+
+.now.entry::before {
+  background-color: var(--secondary);
+}
+
+.when {
+  font-size: 12px;
+  color: var(--secondary);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.what {
+  font-size: 18px;
+  margin: 4px 0px;
+  font-weight: 600;
+}
+
+.where {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.description {
+  margin-top: 8px;
+  font-size: 12px;
+}
