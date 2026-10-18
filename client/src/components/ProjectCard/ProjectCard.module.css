@@ -73,6 +73,14 @@
   font-size: 12px;
 }
 
+.cardContainer:nth-child(3n + 2) .titlebar {
+  background-color: var(--secondary);
+}
+
+.cardContainer:nth-child(3n + 3) .titlebar {
+  background-color: var(--tertiary);
+}
+
 .content {
   padding: 16px;
   display: flex;

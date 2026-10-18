@@ -33,7 +33,7 @@ export const projectData = [
   {
     title: "Modifications to RiboNet",
     description:
-      "Making RiboNet compatible with 5PSeq data. Part of a group project.",
+      "Making RiboNet (CNN + Transformer) compatible with 5PSeq data. Part of a group project.",
     tags: [TAGS.PYTORCH, TAGS.PYTHON],
   },
   {
