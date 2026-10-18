@@ -1,6 +1,7 @@
 import App from "../App";
 import { AboutMe } from "./AboutMe/AboutMe";
 import { Home } from "./Home/Home";
+import { Projects } from "./Projects/Projects";
 
 const routes = [
   {
@@ -11,6 +12,10 @@ const routes = [
       {
         path: "/about-me",
         element: <AboutMe />,
+      },
+      {
+        path: "/projects",
+        element: <Projects />,
       },
     ],
   },

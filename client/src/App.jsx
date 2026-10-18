@@ -12,7 +12,6 @@ import { useWindow } from "./context/WindowContext";
 function App() {
   const [zoomed, setZoomed] = useState(false);
   const [done, setDone] = useState(false);
-  const { title, headerType } = useWindow();
 
   function onClose() {
     setZoomed(false);
@@ -36,7 +35,7 @@ function App() {
         <div className={`${styles.scene} ${zoomed ? styles.zoomed : ""}`}>
           <img src={deskSvg} className={styles.bg} alt="" />
           <div className={styles.content}>
-            <Window title={title} onClose={onClose} headerType={headerType}>
+            <Window onClose={onClose}>
               <Outlet />
               <Footer />
             </Window>

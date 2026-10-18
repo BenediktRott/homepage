@@ -1,8 +1,11 @@
 import styles from "./Window.module.css";
 import partlyCloudyIcon from "../../assets/icons/partly_cloudy_day.svg";
 import { Link } from "react-router";
+import { useWindow } from "../../context/WindowContext";
 
-export function Window({ title, headerType, onClose, children }) {
+export function Window({ onClose, children }) {
+  const { title, header } = useWindow();
+
   return (
     <div className={styles.window}>
       <div className={styles.titlebar}>
@@ -17,7 +20,9 @@ export function Window({ title, headerType, onClose, children }) {
         </div>
         <span>{title}</span>
 
-        {headerType === "weather" ? (
+        {header}
+
+        {/* {headerType === "weather" ? (
           <div className={styles.weather}>
             <img src={partlyCloudyIcon} alt="" />
             <span>14°C</span>
@@ -26,7 +31,7 @@ export function Window({ title, headerType, onClose, children }) {
           <Link to="/" className={styles.backToHome}>
             &larr; back home
           </Link>
-        )}
+        )} */}
       </div>
       <div className={styles.content}>{children}</div>
     </div>

@@ -8,8 +8,10 @@ export function ToolboxItem({ data }) {
         <InfoCard title={data.title} className={styles.infoCard}>
           {data.tags ? (
             <div className={styles.tags}>
-              {data.tags.map((item) => (
-                <div className={styles.tag}>{item}</div>
+              {data.tags.map((item, index) => (
+                <div className={styles.tag} key={index}>
+                  {item}
+                </div>
               ))}
             </div>
           ) : (
@@ -18,8 +20,10 @@ export function ToolboxItem({ data }) {
 
           <ul className={styles.list}>
             {data.list
-              ? data.list.map((item) => (
-                  <li className={styles.listItem}>{item}</li>
+              ? data.list.map((item, index) => (
+                  <li className={styles.listItem} key={index}>
+                    {item}
+                  </li>
                 ))
               : ""}
           </ul>

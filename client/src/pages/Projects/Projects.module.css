@@ -1,0 +1,17 @@
+.aboutMe {
+  display: flex;
+  gap: 32px;
+}
+
+.avatar {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 9999px;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}

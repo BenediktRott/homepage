@@ -6,13 +6,14 @@ import { InfoCard } from "../../components/InfoCard/InfoCard";
 import { ColoredCard } from "../../components/ColoredCard/ColoredCard";
 import { Link } from "react-router";
 import { useWindow } from "../../context/WindowContext";
+import { WeatherElement } from "../../components/HeaderElements/WeatherElement";
 
 export function Home() {
-  const { configureWindow } = useWindow();
+  const { configureWindow, title, header } = useWindow();
 
   useEffect(() => {
-    configureWindow({ title: "homepage.html", headerType: "weather" });
-  }, [configureWindow]);
+    configureWindow({ title: "homepage.html", header: <WeatherElement /> });
+  }, []);
 
   return (
     <>
@@ -60,7 +61,11 @@ export function Home() {
           <span>Education, Skills and a CV</span>
         </ColoredCard>
 
-        <ColoredCard to="/" title="Projects" className={styles.projectsCard}>
+        <ColoredCard
+          to="/projects"
+          title="Projects"
+          className={styles.projectsCard}
+        >
           <span>check out my public programming projects</span>
         </ColoredCard>
 

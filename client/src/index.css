@@ -12,7 +12,8 @@ body,
   font-style: normal;
   font-display: swap;
   font-weight: 100 900;
-  src: url(./files/fraunces-full-full-normal.woff2) format("woff2-variations");
+  src: url(./assets/fonts/fraunces-full-full-normal.woff2)
+    format("woff2-variations");
 }
 
 @font-face {
@@ -20,7 +21,7 @@ body,
   font-style: normal;
   font-display: swap;
   font-weight: 300 700;
-  src: url(./files/space-grotesk-full-full-normal.woff2)
+  src: url(./assets/fonts/space-grotesk-full-full-normal.woff2)
     format("woff2-variations");
 }
 
@@ -30,6 +31,7 @@ body,
   --primary-dark: #5c7057;
   --border: #5b4a5e;
   --secondary: #d68c6a;
+  --secondary-dark: #cc6130;
   --tertiary: #5b4a5e;
   --text-primary: #5b4a5e;
   --text-secondary: #5c7057;

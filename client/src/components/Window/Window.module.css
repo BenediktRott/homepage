@@ -1,3 +1,28 @@
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 9999px;
+  padding-top: 3px;
+  margin: 3px 0;
+  background-color: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* WINDOW */
+
 .window {
   min-width: 30%;
   max-width: min(100%, 1000px);

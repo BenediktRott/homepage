@@ -1,20 +1,27 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
+import { WeatherElement } from "../components/HeaderElements/WeatherElement";
 
 const WindowContext = createContext(null);
 
 export function WindowContextProvider({ children }) {
   const [title, setTitle] = useState("homepage.html");
 
-  const [headerType, setHeaderType] = useState("weather");
+  const [header, setHeader] = useState(<WeatherElement />);
 
-  const configureWindow = ({ title, headerType }) => {
+  const configureWindow = useCallback(({ title, header }) => {
     if (title !== undefined) setTitle(title);
-    if (headerType !== undefined) setHeaderType(headerType);
-  };
+    if (header !== undefined) setHeader(header);
+  }, []);
 
   const value = useMemo(
-    () => ({ title, setTitle, headerType, setHeaderType, configureWindow }),
-    [title, headerType],
+    () => ({ title, setTitle, header, setHeader, configureWindow }),
+    [title, header, configureWindow],
   );
 
   return (

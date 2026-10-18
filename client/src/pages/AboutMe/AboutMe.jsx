@@ -6,6 +6,7 @@ import { Pill } from "../../components/Pill/Pill";
 import { TimelineItem } from "../../components/TimelineItem/TimelineItem";
 import { badges, timelineData, toolboxData } from "../../data/aboutMeData";
 import { ToolboxItem } from "../../components/ToolboxItem/ToolboxItem";
+import { BackToHomeElement } from "../../components/HeaderElements/BackToHomeElement";
 
 export function AboutMe() {
   const { configureWindow } = useWindow();
@@ -13,9 +14,9 @@ export function AboutMe() {
   useEffect(() => {
     configureWindow({
       title: "about-me.html",
-      headerType: "home",
+      header: <BackToHomeElement />,
     });
-  }, [configureWindow]);
+  }, []);
 
   return (
     <>
@@ -30,8 +31,8 @@ export function AboutMe() {
         <div className={styles.aboutText}>
           <h1>Benedikt Rott</h1>
           <div className={styles.pills}>
-            {badges.map((item) => (
-              <Pill>{item.name}</Pill>
+            {badges.map((item, index) => (
+              <Pill key={index}>{item.name}</Pill>
             ))}
           </div>
         </div>
@@ -54,8 +55,8 @@ export function AboutMe() {
       {/* toolbox */}
       <h2>toolbox</h2>
       <div className={styles.toolbox}>
-        {toolboxData.map((item) => (
-          <ToolboxItem data={item}></ToolboxItem>
+        {toolboxData.map((item, index) => (
+          <ToolboxItem data={item} key={index}></ToolboxItem>
         ))}
       </div>
     </>
