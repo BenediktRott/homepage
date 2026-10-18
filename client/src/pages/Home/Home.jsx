@@ -69,7 +69,11 @@ export function Home() {
           <span>check out my public programming projects</span>
         </ColoredCard>
 
-        <ColoredCard to="/" title="Contact me" className={styles.contactCard}>
+        <ColoredCard
+          to="/contact"
+          title="Contact me"
+          className={styles.contactCard}
+        >
           <span>You can contact me via e-mail or through my contact form</span>
         </ColoredCard>
       </section>

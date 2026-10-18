@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.linkContent {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 200px;
+}
