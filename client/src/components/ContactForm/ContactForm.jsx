@@ -1,13 +1,41 @@
 import { useState } from "react";
 import styles from "./ContactForm.module.css";
 
+const API_URL = import.meta.env.VITE_API_URL ?? "";
+
 export function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [website, setWebsite] = useState("");
+  const [status, setStatus] = useState("idle"); //idle | sending | sent | error
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+
+    setStatus("sending");
+
+    try {
+      const response = await fetch(`${API_URL}/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message, website }),
+      });
+
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      setStatus("sent");
+      console.log(status);
+      clearInput();
+    } catch (error) {
+      setStatus("error");
+    }
+  }
+
+  function clearInput() {
+    setName("");
+    setEmail("");
+    setMessage("");
+    setWebsite("");
   }
 
   return (
@@ -67,10 +95,46 @@ export function ContactForm() {
           ></textarea>
         </div>
 
+        <input
+          name="website"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          style={{ position: "absolute", left: "-9999px" }}
+        />
+
         <div className={styles.buttonContainer}>
-          <button type="submit" className={styles.submitButton}>
-            send it &rarr;
-          </button>
+          {(status === "idle" || status === "error") && (
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={status === "sending" || status === "sent"}
+              testId="submitButton"
+            >
+              {status === "sending" ? (
+                "sending…"
+              ) : status === "sent" ? (
+                "sent! ✓"
+              ) : (
+                <>send it &rarr;</>
+              )}
+            </button>
+          )}
+
+          {/* Status Messages */}
+          {status === "error" && (
+            <span className={styles.error}>
+              An error occurred, please try again.
+            </span>
+          )}
+
+          {status === "sending" && <span>Sending...</span>}
+
+          {status === "sent" && (
+            <span className={styles.success}>Message sent &#x2713;</span>
+          )}
         </div>
       </form>
     </div>

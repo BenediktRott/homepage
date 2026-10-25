@@ -100,3 +100,13 @@
 .buttonContainer:hover .submitButton {
   transform: translateY(-3px) rotate(-1deg);
 }
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.error {
+  color: var(--secondary-dark);
+}
